@@ -136,8 +136,13 @@ template "#{chef_conf_dir}/hadoop-metrics.properties" do
 end
 
 # Create the master and slave files
-namenode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode OR recipes:cloudera\\:\\:hadoop_secondary_namenode")
-masters = namenode_servers.map { |node| node[:ipaddress] }
+if(Chef::Config[:solo])
+  namenode_servers = node['ipaddress']
+  masters = node['ipaddress']
+else
+  namenode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode OR recipes:cloudera\\:\\:hadoop_secondary_namenode")
+  masters = namenode_servers.map { |node| node[:ipaddress] }
+end
 
 template "#{chef_conf_dir}/masters" do
   source "master_slave.erb"
