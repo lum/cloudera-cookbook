@@ -153,8 +153,13 @@ template "#{chef_conf_dir}/masters" do
   variables( :nodes => masters )
 end
 
-datanode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_datanode")
-slaves = datanode_servers.map { |node| node[:ipaddress] }
+if(Chef::Config[:solo])
+  datanode_servers = node['ipaddress']
+  slaves = node['ipaddress']
+else
+  datanode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_datanode")
+  slaves = datanode_servers.map { |node| node[:ipaddress] }
+end
 
 template "#{chef_conf_dir}/slaves" do
   source "master_slave.erb"
