@@ -25,6 +25,10 @@ default[:hadoop][:release]                = "4"
 
 default[:hadoop][:conf_dir]               = "conf.chef"
 default[:hadoop][:core_site]['hadoop.tmp.dir'] = "/tmp"
+default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost"
+
+
+default[:hadoop][:hdfs_site]['dfs.permissions.superusergroup'] = "hadoop"
 
 default[:hadoop][:namenode_port]          = "54310"
 default[:hadoop][:jobtracker_port]        = "54311"
