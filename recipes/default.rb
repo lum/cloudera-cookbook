@@ -107,13 +107,13 @@ template "#{chef_conf_dir}/hadoop-env.sh" do
   variables( :options => node[:hadoop][:hadoop_env] )
 end
 
-template node[:hadoop][:mapred_site]['mapred.fairscheduler.allocation.file'] do
-  mode 0644
-  owner "hdfs"
-  group "hdfs"
-  action :create
-  variables node[:hadoop][:fair_scheduler]
-end
+#template node[:hadoop][:mapred_site]['mapred.fairscheduler.allocation.file'] do
+#  mode 0644
+#  owner "hdfs"
+#  group "hdfs"
+#  action :create
+#  variables node[:hadoop][:fair_scheduler]
+#end
 
 template "#{chef_conf_dir}/log4j.properties" do
   source "generic.properties.erb"
