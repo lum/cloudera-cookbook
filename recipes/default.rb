@@ -48,11 +48,7 @@ end
 #end
 
 core_site_vars = { :options => node[:hadoop][:core_site] }
-if(Chef::Config[:solo])
-  core_site_vars[:options]['fs.default.name'] = "hdfs://#{node[:ipaddress]}:#{node[:hadoop][:namenode_port]}"
-#else
-#  core_site_vars[:options]['fs.default.name'] = "hdfs://#{namenode[:ipaddress]}:#{node[:hadoop][:namenode_port]}"
-end
+#core_site_vars[:options]['fs.default.name'] = "hdfs://#{namenode[:ipaddress]}:#{node[:hadoop][:namenode_port]}"
 
 template "#{chef_conf_dir}/core-site.xml" do
   source "generic-site.xml.erb"

@@ -25,7 +25,7 @@ default[:hadoop][:release]                = "4"
 
 default[:hadoop][:conf_dir]               = "conf.chef"
 default[:hadoop][:core_site]['hadoop.tmp.dir'] = "/tmp"
-default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost"
+default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost:#{node['hadoop']['namenode_port']}"
 
 
 default[:hadoop][:hdfs_site]['dfs.permissions.superusergroup'] = "hadoop"
