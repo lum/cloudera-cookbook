@@ -153,7 +153,7 @@ end
 
 if(Chef::Config[:solo])
   datanode_servers = node['ipaddress']
-  slaves = node['ipaddress']
+  slaves = [ "localhost" ]
 else
   datanode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_datanode")
   slaves = datanode_servers.map { |node| node[:ipaddress] }
