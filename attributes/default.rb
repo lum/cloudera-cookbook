@@ -30,6 +30,27 @@ default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost:#{node['hado
 
 default[:hadoop][:hdfs_site]['dfs.permissions.superusergroup'] = "hadoop"
 
+default[:hadoop][:hadoop_policy]['security.client.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.client.datanode.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.datanode.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.inter.datanode.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.namenode.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.admin.operations.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.refresh.usertogroups.mappings.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.refresh.policy.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.ha.service.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.zkfc.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.qjournal.service.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.mrhs.client.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.resourcetracker.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.admin.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.client.resourcemanager.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.applicationmaster.resourcemanager.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.containermanager.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.resourcelocalizer.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.job.task.protocol.acl'] = "*"
+default[:hadoop][:hadoop_policy]['security.job.client.protocol.acl'] = "*"
+
 default[:hadoop][:namenode_port]          = "54310"
 default[:hadoop][:jobtracker_port]        = "54311"
 
