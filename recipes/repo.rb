@@ -29,7 +29,7 @@ when "debian"
   include_recipe "apt"
 
   apt_repository "cloudera-cdh#{node[:hadoop][:release]}" do
-    uri "http://archive.cloudera.com/cdh4/ubuntu/precise/amd64/cdh"
+    uri "[arch=amd64] http://archive.cloudera.com/cdh4/ubuntu/precise/amd64/cdh"
     key "http://archive.cloudera.com/cdh4/ubuntu/lucid/amd64/cdh/archive.key"
 #    distribution "#{node[:lsb][:codename]}-cdh#{node[:hadoop][:release]}"
     distribution "precise-cdh#{node[:hadoop][:release]}"
