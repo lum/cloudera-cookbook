@@ -59,6 +59,6 @@ node[:hadoop][:hdfs_site]['dfs.data.dir'].split(',').each do |dir|
 
 end
 
-service "hadoop-#{node[:hadoop][:version]}-datanode" do
+service "hadoop-hdfs-datanode" do
   action [ :start, :enable ]
 end
