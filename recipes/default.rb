@@ -124,14 +124,14 @@ template "#{chef_conf_dir}/log4j.properties" do
   variables( :properties => node[:hadoop][:log4j] )
 end
 
-template "#{chef_conf_dir}/hadoop-metrics.properties" do
-  source "generic.properties.erb"
-  mode 0644
-  owner "hdfs"
-  group "hdfs"
-  action :create
-  variables( :properties => node[:hadoop][:hadoop_metrics] )
-end
+#template "#{chef_conf_dir}/hadoop-metrics.properties" do
+#  source "generic.properties.erb"
+#  mode 0644
+#  owner "hdfs"
+#  group "hdfs"
+#  action :create
+#  variables( :properties => node[:hadoop][:hadoop_metrics] )
+#end
 
 # Create the master and slave files
 if(Chef::Config[:solo])
