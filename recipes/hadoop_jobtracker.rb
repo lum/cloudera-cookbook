@@ -21,7 +21,7 @@
 
 include_recipe "cloudera"
 
-package "hadoop-#{node[:hadoop][:version]}-jobtracker"
+package "hadoop-#{node[:hadoop][:version]}-mapreduce-jobtracker"
 
 case node[:platform_family]
 when "rhel"

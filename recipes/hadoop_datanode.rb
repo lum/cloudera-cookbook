@@ -21,7 +21,7 @@
 
 include_recipe "cloudera"
 
-package "hadoop-#{node[:hadoop][:version]}-datanode"
+package "hadoop-hdfs-datanode"
 
 #Example hue-plugins-1.2.0.0+114.20-1.noarch
 if node[:hadoop][:hue_plugin_version] 

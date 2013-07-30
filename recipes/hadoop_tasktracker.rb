@@ -21,7 +21,7 @@
 
 include_recipe "cloudera"
 
-package "hadoop-#{node[:hadoop][:version]}-tasktracker"
+package "hadoop-#{node[:hadoop][:version]}-mapreduce-tasktracker"
 
 node[:hadoop][:mapred_site]['mapred.local.dir'].split(',').each do |dir|
   directory dir do

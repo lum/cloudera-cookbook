@@ -20,7 +20,7 @@
 
 include_recipe "cloudera"
 
-package "hadoop-#{node[:hadoop][:version]}-secondarynamenode"
+package "hadoop-hdfs-secondarynamenode"
 
 case node[:platform_family]
 when "rhel"

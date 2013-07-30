@@ -30,10 +30,11 @@ when "debian"
 
   apt_repository "cloudera-cdh#{node[:hadoop][:release]}" do
     uri "http://archive.cloudera.com/cdh4/ubuntu/precise/amd64/cdh"
-    key "http://archive.cloudera.com/debian/archive.key"
+    key "http://archive.cloudera.com/cdh4/ubuntu/lucid/amd64/cdh/archive.key"
 #    distribution "#{node[:lsb][:codename]}-cdh#{node[:hadoop][:release]}"
     distribution "precise-cdh#{node[:hadoop][:release]}"
     components [ "contrib" ]
+    deb_src true
     action :add
   end
 end

@@ -22,8 +22,7 @@
 include_recipe "cloudera::repo"
 
 
-package "hadoop-#{node[:hadoop][:version]}"
-package "hadoop-#{node[:hadoop][:version]}-native"
+package "hadoop-client"
 package "nscd"
 
 service "nscd" do
