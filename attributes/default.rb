@@ -21,7 +21,7 @@
 #default[:java][:java_home]                = "/usr"
 
 default[:hadoop][:version]                = "0.20"
-default[:hadoop][:release]                = "3u3"
+default[:hadoop][:release]                = "4"
 
 default[:hadoop][:conf_dir]               = "conf.chef"
 default[:hadoop][:core_site]['hadoop.tmp.dir'] = "/tmp"
