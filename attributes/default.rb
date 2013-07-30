@@ -24,6 +24,7 @@ default[:hadoop][:version]                = "0.20"
 default[:hadoop][:release]                = "3u3"
 
 default[:hadoop][:conf_dir]               = "conf.chef"
+default[:hadoop][:core_site]['hadoop.tmp.dir'] = "/tmp"
 
 default[:hadoop][:namenode_port]          = "54310"
 default[:hadoop][:jobtracker_port]        = "54311"
