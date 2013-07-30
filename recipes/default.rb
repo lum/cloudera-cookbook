@@ -135,8 +135,8 @@ end
 
 # Create the master and slave files
 if(Chef::Config[:solo])
-  namenode_servers = node['ipaddress']
-  masters = node['ipaddress']
+  namenode_servers = node['hostname']
+  masters = namenode_servers.map { |node| node[:ipaddress] }
 else
   namenode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode OR recipes:cloudera\\:\\:hadoop_secondary_namenode")
   masters = namenode_servers.map { |node| node[:ipaddress] }
