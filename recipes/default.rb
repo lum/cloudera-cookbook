@@ -62,7 +62,7 @@ end
 
 #secondary_namenode = search(:node, "chef_environment:#{node.chef_environment} and recipes:cloudera\\:\\:hadoop_secondary_namenode_server").first
 
-hdfs_site_vars = { :options => node[:hadoop][:hdfs_site] }
+#hdfs_site_vars = { :options => node[:hadoop][:hdfs_site] }
 #hdfs_site_vars[:options]['fs.default.name'] = "hdfs://#{namenode[:ipaddress]}:#{node[:hadoop][:namenode_port]}"
 # TODO dfs.secondary.http.address should have port made into an attribute - maybe
 #hdfs_site_vars[:options]['dfs.secondary.http.address'] = "#{secondary_namenode[:ipaddress]}:50090" if secondary_namenode
