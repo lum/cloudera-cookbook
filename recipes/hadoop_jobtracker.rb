@@ -35,7 +35,7 @@ when "rhel"
   end
 end
 
-service "hadoop-#{node[:hadoop][:version]}-jobtracker" do
+service "hadoop-#{node[:hadoop][:version]}-mapreduce-jobtracker" do
   action [ :start, :enable ]
 end
 
