@@ -131,3 +131,8 @@ default[:hadoop][:log4j]['log4j.appender.RFAS.layout.ConversionPattern']        
 default[:hadoop][:log4j]['log4j.appender.RFAS.MaxFileSize'] 																	= '${hadoop.security.log.maxfilesize}'
 default[:hadoop][:log4j]['log4j.appender.RFAS.MaxBackupIndex'] 																= '${hadoop.security.log.maxbackupindex}'
 
+default[:hadoop][:hadoop_metrics]['dfs.class']																								= 'org.apache.hadoop.metrics.spi.NullContext'
+default[:hadoop][:hadoop_metrics]['mapred.class']																							= 'org.apache.hadoop.metrics.spi.NullContext'
+default[:hadoop][:hadoop_metrics]['rpc.class']																								= 'org.apache.hadoop.metrics.spi.NullContext'
+default[:hadoop][:hadoop_metrics]['ugi.class']																								= 'org.apache.hadoop.metrics.spi.NullContext'
+
