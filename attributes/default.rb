@@ -68,7 +68,7 @@ default[:hadoop][:rackaware][:rack]       = "rack0"
 default[:hadoop][:yum_repo_url]           = nil
 default[:hadoop][:yum_repo_key_url]       = nil
 
-default[:hadoop][:mapred_site]['mapred.fairscheduler.allocation.file'] = "/etc/hadoop-#{node[:hadoop][:version]}/#{node[:hadoop][:conf_dir]}/fair-scheduler.xml"
+default[:hadoop][:mapred_site]['mapred.fairscheduler.allocation.file'] = "/etc/hadoop/#{node[:hadoop][:conf_dir]}/fair-scheduler.xml"
 
 default[:hadoop][:log4j]['hadoop.root.logger']                                                 = 'INFO,console'
 default[:hadoop][:log4j]['hadoop.security.logger']                                             = 'INFO,console'
@@ -107,7 +107,7 @@ default[:hadoop][:log4j]['log4j.appender.DRFAS.layout.ConversionPattern']       
 default[:hadoop][:log4j]['log4j.category.SecurityLogger']                                      = '${hadoop.security.logger}'
 default[:hadoop][:log4j]['log4j.logger.org.apache.hadoop.fs.FSNamesystem.audit']               = 'WARN'
 default[:hadoop][:log4j]['log4j.logger.org.jets3t.service.impl.rest.httpclient.RestS3Service'] = 'ERROR'
-default[:hadoop][:log4j]['log4j.appender.EventCounter']                                        = 'org.apache.hadoop.metrics.jvm.EventCounter'
+default[:hadoop][:log4j]['log4j.appender.EventCounter']                                        = 'org.apache.hadoop.log.metrics.EventCounter'
 default[:hadoop][:log4j]['log4j.appender.JSA']                                                 = 'org.apache.log4j.DailyRollingFileAppender'
 default[:hadoop][:log4j]['log4j.appender.JSA.File']                                            = '${hadoop.log.dir}/${hadoop.mapreduce.jobsummary.log.file}'
 default[:hadoop][:log4j]['log4j.appender.JSA.layout']                                          = 'org.apache.log4j.PatternLayout'
