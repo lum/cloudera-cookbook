@@ -29,7 +29,7 @@ service "nscd" do
   action [ :start, :enable ]
 end
 
-chef_conf_dir = "/etc/hadoop-#{node[:hadoop][:version]}/#{node[:hadoop][:conf_dir]}"
+chef_conf_dir = "/etc/hadoop/#{node[:hadoop][:conf_dir]}"
 
 
 directory chef_conf_dir do
