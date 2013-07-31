@@ -116,3 +116,17 @@ default[:hadoop][:log4j]['log4j.appender.JSA.DatePattern']                      
 default[:hadoop][:log4j]['log4j.logger.org.apache.hadoop.mapred.JobInProgress$JobSummary']     = '${hadoop.mapreduce.jobsummary.logger}'
 default[:hadoop][:log4j]['log4j.additivity.org.apache.hadoop.mapred.JobInProgress$JobSummary'] = 'false'
 
+default[:hadoop][:log4j]['log4j.appender.RFA']                                                = 'org.apache.log4j.DailyRollingFileAppender'
+default[:hadoop][:log4j]['log4j.appender.RFA.File']                                           = '${hadoop.log.dir}/${hadoop.log.file}'
+default[:hadoop][:log4j]['log4j.appender.RFA.MaxFileSize'] 																		= '${hadoop.log.maxfilesize}'
+default[:hadoop][:log4j]['log4j.appender.RFA.MaxBackupIndex'] 																= '${hadoop.log.maxbackupindex}'
+default[:hadoop][:log4j]['log4j.appender.RFA.layout']                                         = 'org.apache.log4j.PatternLayout'
+default[:hadoop][:log4j]['log4j.appender.RFA.layout.ConversionPattern']                       = '%d{ISO8601} %p %c: %m%n'
+
+default[:hadoop][:log4j]['log4j.appender.RFAS']                                               = 'org.apache.log4j.DailyRollingFileAppender '
+default[:hadoop][:log4j]['log4j.appender.RFAS.File']                                          = '${hadoop.log.dir}/${hadoop.security.log.file}'
+default[:hadoop][:log4j]['log4j.appender.RFAS.layout']                                        = 'org.apache.log4j.PatternLayout'
+default[:hadoop][:log4j]['log4j.appender.RFAS.layout.ConversionPattern']                      = '%d{ISO8601} %p %c: %m%n'
+default[:hadoop][:log4j]['log4j.appender.RFAS.MaxFileSize'] 																	= '${hadoop.security.log.maxfilesize}'
+default[:hadoop][:log4j]['log4j.appender.RFAS.MaxBackupIndex'] 																= '${hadoop.security.log.maxbackupindex}'
+
