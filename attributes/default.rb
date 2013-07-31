@@ -3,6 +3,7 @@
 # Attributes:: default
 #
 # Author:: Cliff Erson (<cerson@me.com>)
+# Author:: Steve Lum (<steve.lum@gmail.com>)
 # Copyright 2012, Riot Games
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
