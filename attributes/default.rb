@@ -23,6 +23,9 @@
 default[:hadoop][:version]                = "0.20"
 default[:hadoop][:release]                = "4"
 
+default[:hadoop][:namenode_port]          = "54310"
+default[:hadoop][:jobtracker_port]        = "54311"
+
 default[:hadoop][:conf_dir]               = "conf.chef"
 default[:hadoop][:core_site]['hadoop.tmp.dir'] = "/tmp"
 default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost:#{node['hadoop']['namenode_port']}"
@@ -57,9 +60,6 @@ default[:hadoop][:hadoop_env]['JAVA_HOME'] = "/usr/lib/jvm/java-7-oracle/"
 
 default[:hadoop][:fair_scheduler] = {}
 
-default[:hadoop][:namenode_port]          = "54310"
-default[:hadoop][:jobtracker_port]        = "54311"
-
 # Provide rack info
 default[:hadoop][:rackaware][:datacenter] = "default"
 default[:hadoop][:rackaware][:rack]       = "rack0"
@@ -70,7 +70,6 @@ default[:hadoop][:yum_repo_key_url]       = nil
 
 default[:hadoop][:mapred_site]['mapred.fairscheduler.allocation.file'] = "/etc/hadoop/#{node[:hadoop][:conf_dir]}/fair-scheduler.xml"
 default[:hadoop][:mapred_site]['mapred.job.tracker'] = "localhost:#{node['hadoop']['jobtracker_port']}"
-
 
 default[:hadoop][:log4j]['hadoop.root.logger']                                                 = 'INFO,console'
 default[:hadoop][:log4j]['hadoop.security.logger']                                             = 'INFO,console'
