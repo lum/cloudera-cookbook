@@ -215,5 +215,5 @@ template "/usr/lib/hadoop-#{node[:hadoop][:version]}-mapreduce/bin/hadoop-config
 end
 
 execute "update hadoop alternatives" do
-  command "update-alternatives --install /etc/hadoop-#{node[:hadoop][:version]}/conf hadoop-#{node[:hadoop][:version]}-conf /etc/hadoop-#{node[:hadoop][:version]}/#{node[:hadoop][:conf_dir]} 50"
+  command "update-alternatives --install /etc/hadoop/conf hadoop-conf /etc/hadoop/#{node[:hadoop][:conf_dir]} 50"
 end
