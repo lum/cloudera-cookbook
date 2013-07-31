@@ -1,6 +1,8 @@
 name             "cloudera"
 maintainer       "Riot Games"
 maintainer_email "cerson@me.com"
+maintainer       "Steve Lum"
+maintainer_email "steve.lum@gmail.com"
 license          "Apache 2.0"
 description      "Installs and configures cloudera (hadoop/hive)"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
