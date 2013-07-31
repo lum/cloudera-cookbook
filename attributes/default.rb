@@ -30,8 +30,8 @@ default[:hadoop][:conf_dir]               = "conf.chef"
 default[:hadoop][:core_site]['hadoop.tmp.dir'] = "/tmp"
 default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost:#{node['hadoop']['namenode_port']}"
 
-default[:hadoop][:hdfs_site]['dfs.name.dir'] = "/hadoop/dfs/namenode"
-default[:hadoop][:hdfs_site]['dfs.data.dir'] = "/hadoop/dfs/datanode"
+default[:hadoop][:hdfs_site]['dfs.namenode.name.dir'] = "/hadoop/dfs/namenode"
+default[:hadoop][:hdfs_site]['dfs.datanode.data.dir'] = "/hadoop/dfs/datanode"
 
 default[:hadoop][:hdfs_site]['dfs.permissions.superusergroup'] = "hadoop"
 
