@@ -35,7 +35,7 @@ when "rhel"
   end
 end
 
-node[:hadoop][:hdfs_site]['dfs.name.dir'].split(',').each do |dir|
+node[:hadoop][:hdfs_site]['dfs.namenode.name.dir'].split(',').each do |dir|
   directory dir do
     mode 0755
     owner "hdfs"
