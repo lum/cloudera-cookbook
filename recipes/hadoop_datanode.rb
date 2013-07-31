@@ -43,7 +43,7 @@ when "rhel"
   end
 end
 
-node[:hadoop][:hdfs_site]['dfs.data.dir'].split(',').each do |dir|
+node[:hadoop][:hdfs_site]['dfs.datanode.data.dir'].split(',').each do |dir|
 
   directory dir do
     mode 0755
