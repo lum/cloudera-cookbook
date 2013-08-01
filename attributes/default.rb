@@ -71,6 +71,7 @@ default[:hadoop][:yum_repo_key_url]       = nil
 
 default[:hadoop][:mapred_site]['mapred.fairscheduler.allocation.file'] = "/etc/hadoop/#{node[:hadoop][:conf_dir]}/fair-scheduler.xml"
 default[:hadoop][:mapred_site]['mapred.job.tracker'] = "localhost:#{node['hadoop']['jobtracker_port']}"
+default[:hadoop][:mapred_site]['mapred.local.dir'] = "/hadoop/mapred/tmp"
 
 default[:hadoop][:log4j]['hadoop.root.logger']                                                 = 'INFO,console'
 default[:hadoop][:log4j]['hadoop.security.logger']                                             = 'INFO,console'
