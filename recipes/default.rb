@@ -53,7 +53,7 @@ end
 if(Chef::Config[:solo])
 else
   namenode = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode").first
-  node.default[:hadoop][:core_site]['fs.default.name'] = "hdfs://#{namenode[:ipaddress]}:#{node[:hadoop][:namenode_port]}"
+  node.default[:hadoop][:core_site]['fs.default.name'] = "hdfs://#{namenode[:fqdn]}:#{node[:hadoop][:namenode_port]}"
 end
 
 core_site_vars = { :options => node[:hadoop][:core_site] }
@@ -86,7 +86,7 @@ end
 
 jobtracker = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_jobtracker").first
 
-node.default[:hadoop][:mapred_site]['mapred.job.tracker'] = "#{jobtracker[:ipaddress]}:#{node[:hadoop][:jobtracker_port]}" if jobtracker
+node.default[:hadoop][:mapred_site]['mapred.job.tracker'] = "#{jobtracker[:fqdn]}:#{node[:hadoop][:jobtracker_port]}" if jobtracker
 mapred_site_vars = { :options => node[:hadoop][:mapred_site] }
 
 template "#{chef_conf_dir}/mapred-site.xml" do
