@@ -24,6 +24,16 @@ include_recipe "cloudera"
 
 package "hadoop-hdfs-namenode"
 
+node[:hadoop][:mapred_site]['mapred.local.dir'].split(',').each do |dir|
+  directory dir do
+    mode 0755
+    owner "mapred"
+    group "mapred"
+    action :create
+    recursive true
+  end
+end
+
 case node[:platform_family]
 when "rhel"
   template "/etc/init.d/hadoop-#{node[:hadoop][:version]}-namenode" do
