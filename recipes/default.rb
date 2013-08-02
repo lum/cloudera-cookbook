@@ -52,10 +52,14 @@ end
 #  raise
 #end
 
-namenode = search_for_nodes("chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode", 'fqdn')
+if(Chef::Config[:solo])
+else
+  namenode = search_for_nodes("chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode", 'fqdn').first
+  node.default[:hadoop][:core_site]['fs.default.name'] = "hdfs://#{namenode}:#{node[:hadoop][:namenode_port]}"
+end
 
 core_site_vars = { :options => node[:hadoop][:core_site] }
-core_site_vars[:options]['fs.default.name'] = "hdfs://#{namenode}:#{node[:hadoop][:namenode_port]}"
+
 
 template "#{chef_conf_dir}/core-site.xml" do
   source "generic-site.xml.erb"
