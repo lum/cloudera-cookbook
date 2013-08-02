@@ -45,6 +45,6 @@ when "rhel"
   end
 end
 
-service "hadoop-#{node[:hadoop][:version]}-tasktracker" do
+service "hadoop-#{node[:hadoop][:version]}-mapreduce-tasktracker" do
   action [ :start, :enable ]
 end
