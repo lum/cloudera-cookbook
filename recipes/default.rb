@@ -22,8 +22,6 @@
 
 [Chef::Recipe, Chef::Resource].each { |l| l.send :include, ::Extensions }
 
-Erubis::Context.send(:include, Extensions::Templates)
-
 include_recipe "cloudera::repo"
 
 
