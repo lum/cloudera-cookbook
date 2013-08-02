@@ -29,6 +29,7 @@ node[:hadoop][:mapred_site]['mapred.local.dir'].split(',').each do |dir|
     owner "mapred"
     group "mapred"
     action :create
+    recursive true
   end
 end
 
