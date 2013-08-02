@@ -148,7 +148,7 @@ if(Chef::Config[:solo])
   masters = [ "localhost" ]
 else
   namenode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode OR recipes:cloudera\\:\\:hadoop_secondary_namenode")
-  masters = namenode_servers.map { |node| node[:ipaddress] }
+  masters = namenode_servers.map { |node| node[:fqdn] }
 end
 
 template "#{chef_conf_dir}/masters" do
@@ -165,7 +165,7 @@ if(Chef::Config[:solo])
   slaves = [ "localhost" ]
 else
   datanode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_datanode")
-  slaves = datanode_servers.map { |node| node[:ipaddress] }
+  slaves = datanode_servers.map { |node| node[:fqdn] }
 end
 
 template "#{chef_conf_dir}/slaves" do
