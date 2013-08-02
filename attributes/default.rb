@@ -24,7 +24,7 @@
 default[:hadoop][:version]                = "0.20"
 default[:hadoop][:release]                = "4"
 
-default[:hadoop][:namenode_port]          = "54310"
+default[:hadoop][:namenode_port]          = "8020"
 default[:hadoop][:jobtracker_port]        = "54311"
 
 default[:hadoop][:conf_dir]               = "conf.chef"
