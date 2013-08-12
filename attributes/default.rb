@@ -31,8 +31,8 @@ default[:hadoop][:conf_dir]               = "conf.chef"
 default[:hadoop][:core_site]['hadoop.tmp.dir'] = "/tmp"
 default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost:#{node['hadoop']['namenode_port']}"
 
-default[:hadoop][:hdfs_site]['dfs.namenode.name.dir'] = "/hadoop/dfs/namenode"
-default[:hadoop][:hdfs_site]['dfs.datanode.data.dir'] = "/hadoop/dfs/datanode"
+default[:hadoop][:hdfs_site]['dfs.namenode.name.dir'] = "/srv/hadoop/dfs/namenode"
+default[:hadoop][:hdfs_site]['dfs.datanode.data.dir'] = "/srv/hadoop/dfs/datanode"
 
 default[:hadoop][:hdfs_site]['dfs.permissions.superusergroup'] = "hadoop"
 
@@ -71,7 +71,7 @@ default[:hadoop][:yum_repo_key_url]       = nil
 
 default[:hadoop][:mapred_site]['mapred.fairscheduler.allocation.file'] = "/etc/hadoop/#{node[:hadoop][:conf_dir]}/fair-scheduler.xml"
 default[:hadoop][:mapred_site]['mapred.job.tracker'] = "localhost:#{node['hadoop']['jobtracker_port']}"
-default[:hadoop][:mapred_site]['mapred.local.dir'] = "/hadoop/mapred/tmp"
+default[:hadoop][:mapred_site]['mapred.local.dir'] = "/srv/hadoop/mapred/tmp"
 
 default[:hadoop][:log4j]['hadoop.root.logger']                                                 = 'INFO,console'
 default[:hadoop][:log4j]['hadoop.security.logger']                                             = 'INFO,console'
