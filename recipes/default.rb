@@ -52,8 +52,12 @@ end
 
 if(Chef::Config[:solo])
 else
-  namenode = search_for_nodes("chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode", 'fqdn').first
-  node.default[:hadoop][:core_site]['fs.default.name'] = "hdfs://#{namenode}:#{node[:hadoop][:namenode_port]}"
+  if node.name.include?(namenode1)
+    node.default[:hadoop][:core_site]['fs.default.name'] = "hdfs://#{node.name}:#{node[:hadoop][:namenode_port]}"
+  else
+    namenode = search_for_nodes("chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode", 'fqdn').first
+    node.default[:hadoop][:core_site]['fs.default.name'] = "hdfs://#{namenode}:#{node[:hadoop][:namenode_port]}"
+  end
 end
 
 core_site_vars = { :options => node[:hadoop][:core_site] }
