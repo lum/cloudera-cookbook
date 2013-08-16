@@ -33,6 +33,7 @@ default[:hadoop][:core_site]['fs.default.name'] = "hdfs://localhost:#{node['hado
 
 default[:hadoop][:hdfs_site]['dfs.namenode.name.dir'] = "/srv/hadoop/dfs/namenode"
 default[:hadoop][:hdfs_site]['dfs.datanode.data.dir'] = "/srv/hadoop/dfs/datanode"
+default[:hadoop][:hdfs_site]['fs.checkpoint.dir'] = "/srv/hadoop/dfs/checkpoint"
 
 default[:hadoop][:hdfs_site]['dfs.permissions.superusergroup'] = "hadoop"
 
