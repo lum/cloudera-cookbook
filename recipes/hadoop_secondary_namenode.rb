@@ -44,7 +44,13 @@ node[:hadoop][:hdfs_site]['fs.checkpoint.dir'].split(',').each do |dir|
   end
 end
 
-service "hadoop-#{node[:hadoop][:version]}-secondarynamenode" do
-  action [ :start, :enable ]
+case node[:platform_family]
+when "rhel"
+  service "hadoop-#{node[:hadoop][:version]}-secondarynamenode" do
+    action [ :start, :enable ]
+  end
+else
+  service "hadoop-hdfs-secondarynamenode" do
+    action [ :start, :enable ]
+  end
 end
-
