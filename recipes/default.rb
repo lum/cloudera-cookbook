@@ -22,7 +22,7 @@
 
 [Chef::Recipe, Chef::Resource].each { |l| l.send :include, ::Extensions }
 
-include_recipe "cloudera::repo"
+include_recipe "cloudera-cookbook::repo"
 
 
 package "hadoop-client"
