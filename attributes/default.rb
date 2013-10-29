@@ -59,6 +59,7 @@ default[:hadoop][:hadoop_policy]['security.job.task.protocol.acl'] = "*"
 default[:hadoop][:hadoop_policy]['security.job.client.protocol.acl'] = "*"
 
 default[:hadoop][:hadoop_env]['JAVA_HOME'] = "/usr/lib/jvm/java-6-oracle/"
+default[:hadoop][:hadoop_env]['HADOOP_MAPRED_HOME']="/usr/lib/hadoop-#{node[:hadoop][:version]}-mapreduce"
 
 default[:hadoop][:fair_scheduler] = {}
 

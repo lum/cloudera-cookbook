@@ -151,7 +151,7 @@ if(Chef::Config[:solo])
   namenode_servers = node['ipaddress']
   masters = [ "localhost" ]
 else
-  namenode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_namenode OR recipes:cloudera\\:\\:hadoop_secondary_namenode")
+  namenode_servers = search(:node, "chef_environment:#{node.chef_environment} AND recipes:cloudera\\:\\:hadoop_secondary_namenode")
   masters = namenode_servers.map { |node| node[:fqdn] }
 end
 
